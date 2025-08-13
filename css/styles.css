@@ -107,22 +107,20 @@ body {
 }
 .btn:active { transform: translateY(0); }
 
-/* Amazon button with book thumbnail */
-/* Amazon button with book thumbnail - centered better */
+/* Amazon button with book thumbnail (base) */
 .btn--with-image {
   --thumb-size: 40px;
-  --thumb-gap: -4px; /* negative value to overlap closer */
+  --thumb-gap: -4px; /* can be negative to pull text closer */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 8px); /* less padding */
+  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 8px);
   position: relative;
 }
-
 .btn--with-image::before {
   content: "";
   position: absolute;
-  left: 6px; /* closer to text than before */
+  left: 6px;
   top: 50%;
   transform: translateY(-50%);
   width: var(--thumb-size);
@@ -142,7 +140,6 @@ body {
   max-width: calc(84px * 3 + 18px * 2);
   margin: 16px auto 0;
 }
-
 .icon-link {
   width: 84px;
   height: 84px;
@@ -161,7 +158,6 @@ body {
   outline: none;
   background: #000000;
 }
-
 .icon {
   width: 44px;
   height: 44px;
@@ -178,4 +174,26 @@ body {
 /* Larger screens */
 @media (min-width: 720px) {
   .container { gap: 32px; padding-top: 96px; }
+}
+
+/* === OVERRIDE: tighten book cover spacing on Amazon button === */
+/* Place this at the end of the file so it wins */
+.links .btn.btn--with-image {
+  --thumb-size: 40px;
+  --thumb-gap: 2px;  /* set to 1px for almost touching */
+  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 10px);
+}
+.links .btn.btn--with-image::before {
+  left: 10px;        /* nudges image toward the text */
+}
+
+/* Optional: even tighter on very small screens */
+@media (max-width: 420px) {
+  .links .btn.btn--with-image {
+    --thumb-gap: 1px;
+    padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 8px);
+  }
+  .links .btn.btn--with-image::before {
+    left: 8px;
+  }
 }
