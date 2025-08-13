@@ -110,8 +110,8 @@ body {
 /* Book thumbnail inside the Amazon button */
 .btn--with-image {
   --thumb-size: 40px;    /* height/width of the cover */
-  --thumb-gap: 2px;      /* space between cover and text; set to 1px for nearly touching */
-  --thumb-left: 22px;    /* how far from the left edge the cover sits (increase to move toward text) */
+  --thumb-gap: -10px;      /* space between cover and text; set to 1px for nearly touching */
+  --thumb-left: 52px;    /* how far from the left edge the cover sits (increase to move toward text) */
 
   position: relative;
   display: inline-flex; align-items: center; justify-content: center;
