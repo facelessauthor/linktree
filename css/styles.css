@@ -110,16 +110,16 @@ body {
 /* Social icons */
 .social {
   display: grid;
-  grid-template-columns: repeat(3, 84px); /* first row: 3 icons */
+  grid-template-columns: repeat(3, 84px);
   justify-content: center;
   gap: 18px;
-  margin-top: 16px; /* keep your spacing if you had it */
+  margin-top: 16px;
 }
 
 @media (max-width: 480px) {
-  /* Place 4th and 5th icons in the center two spots on row 2 */
-  .social a:nth-child(4) { grid-column: 2; }  /* Amazon */
-  .social a:nth-child(5) { grid-column: 3; }  /* Email */
+  /* Force 4th and 5th icons to share the center columns */
+  .social a:nth-child(4) { grid-column: 2; } /* Goodreads */
+  .social a:nth-child(5) { grid-column: 3; } /* Amazon */
 }
 
 .icon-link {
