@@ -26,7 +26,7 @@ body {
 /* Background image */
 .bg {
   position: fixed; inset: 0;
-  background: url('../assets/images/hero-bg.jpg') center/cover no-repeat fixed;
+  background: url('../assets/images/hero-bg.jpg') center/cover no-repeat;
   filter: saturate(0.9) brightness(0.6) contrast(1.1);
   transform: translateZ(0);
   will-change: transform;
@@ -89,7 +89,7 @@ body {
   margin-top: 6px;
 }
 .btn {
-  position: relative; /* allow a left image without breaking center text */
+  position: relative; /* for left thumbnail */
   display: inline-flex; align-items: center; justify-content: center;
   text-decoration: none; color: #0b0b0b; font-weight: 700;
   background: linear-gradient(180deg, #fff7e0, var(--gold));
@@ -108,11 +108,10 @@ body {
 }
 .btn:active { transform: translateY(0); }
 
-/* --- Button modifier: add a left image (book cover) --- */
+/* Add a left book-cover thumbnail to a specific button */
 .btn--with-image {
   --thumb-size: clamp(40px, 8vw, 64px);
   --thumb-gap: 14px;
-  /* make room for the thumbnail but keep text visually centered */
   padding-left: calc(18px + var(--thumb-size) + var(--thumb-gap));
 }
 .btn--with-image::before {
@@ -128,10 +127,6 @@ body {
   box-shadow: 0 6px 18px rgba(0,0,0,0.35);
   pointer-events: none;
 }
-.btn--with-image:hover::before,
-.btn--with-image:focus-visible::before {
-  filter: brightness(1.03) contrast(1.02);
-}
 
 /* Social icons: 3 on top, 2 centered underneath */
 .social {
@@ -139,11 +134,9 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 18px;
-  /* 3 circles + 2 gaps = perfectly sized row */
   max-width: calc(84px * 3 + 18px * 2);
   margin: 16px auto 0;
 }
-
 .icon-link {
   width: 84px;
   height: 84px;
@@ -162,7 +155,6 @@ body {
   outline: none;
   background: #000000;
 }
-
 .icon {
   width: 44px;
   height: 44px;
