@@ -26,7 +26,7 @@ body {
 /* Background image */
 .bg {
   position: fixed; inset: 0;
-  background: url('../assets/images/hero-bg.jpg') center/cover no-repeat;
+  background: url('../assets/images/hero-bg.jpg') center/cover no-repeat fixed;
   filter: saturate(0.9) brightness(0.6) contrast(1.1);
   transform: translateZ(0);
   will-change: transform;
@@ -89,7 +89,6 @@ body {
   margin-top: 6px;
 }
 .btn {
-  position: relative; /* for left thumbnail */
   display: inline-flex; align-items: center; justify-content: center;
   text-decoration: none; color: #0b0b0b; font-weight: 700;
   background: linear-gradient(180deg, #fff7e0, var(--gold));
@@ -108,27 +107,32 @@ body {
 }
 .btn:active { transform: translateY(0); }
 
-/* Add a left book-cover thumbnail to a specific button */
+/* Amazon button with book thumbnail */
 .btn--with-image {
-  --thumb-size: clamp(40px, 8vw, 64px);
-  --thumb-gap: 14px;
-  padding-left: calc(18px + var(--thumb-size) + var(--thumb-gap));
+  --thumb-size: 44px; /* exact image height */
+  --thumb-gap: 14px; /* space between image and text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 20px);
+  position: relative;
 }
+
 .btn--with-image::before {
   content: "";
   position: absolute;
-  left: 18px;
+  left: 16px; /* positions inside button */
   top: 50%;
+  transform: translateY(-50%);
   width: var(--thumb-size);
   height: var(--thumb-size);
-  transform: translateY(-50%);
   background: url('../assets/images/book-cover.png') center/cover no-repeat;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.35);
   pointer-events: none;
 }
 
-/* Social icons: 3 on top, 2 centered underneath */
+/* Social icons */
 .social {
   display: flex;
   flex-wrap: wrap;
@@ -137,6 +141,7 @@ body {
   max-width: calc(84px * 3 + 18px * 2);
   margin: 16px auto 0;
 }
+
 .icon-link {
   width: 84px;
   height: 84px;
@@ -155,6 +160,7 @@ body {
   outline: none;
   background: #000000;
 }
+
 .icon {
   width: 44px;
   height: 44px;
@@ -168,7 +174,7 @@ body {
 .reveal { opacity: 0; transform: translateY(10px); }
 .reveal.revealed { opacity: 1; transform: translateY(0); transition: opacity 700ms ease, transform 700ms ease; }
 
-/* Larger screens: widen spacing slightly */
+/* Larger screens */
 @media (min-width: 720px) {
   .container { gap: 32px; padding-top: 96px; }
 }
