@@ -110,19 +110,19 @@ body {
 /* Amazon button with book thumbnail */
 /* Amazon button with book thumbnail - centered better */
 .btn--with-image {
-  --thumb-size: 40px; /* slightly smaller for balance */
-  --thumb-gap: 0px;  /* less space between image and text */
+  --thumb-size: 40px;
+  --thumb-gap: -4px; /* negative value to overlap closer */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 12px); /* reduced from +20px */
+  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 8px); /* less padding */
   position: relative;
 }
 
 .btn--with-image::before {
   content: "";
   position: absolute;
-  left: 1px; /* moved closer to text */
+  left: 6px; /* closer to text than before */
   top: 50%;
   transform: translateY(-50%);
   width: var(--thumb-size);
