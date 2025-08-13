@@ -180,8 +180,8 @@ body {
 /* Place this at the end of the file so it wins */
 .links .btn.btn--with-image {
   --thumb-size: 40px;
-  --thumb-gap: 2px;  /* set to 1px for almost touching */
-  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 10px);
+  --thumb-gap: 0px;  /* set to 1px for almost touching */
+  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 30px);
 }
 .links .btn.btn--with-image::before {
   left: 10px;        /* nudges image toward the text */
