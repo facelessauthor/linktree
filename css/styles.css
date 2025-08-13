@@ -109,17 +109,21 @@ body {
 
 /* Book thumbnail inside the Amazon button */
 .btn--with-image {
-  --thumb-size: 40px;
-  --thumb-gap: 2px;                              /* 1–2px = almost touching */
+  --thumb-size: 40px;    /* height/width of the cover */
+  --thumb-gap: 2px;      /* space between cover and text; set to 1px for nearly touching */
+  --thumb-left: 22px;    /* how far from the left edge the cover sits (increase to move toward text) */
+
   position: relative;
   display: inline-flex; align-items: center; justify-content: center;
-  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 10px) !important;  /* pull text left */
+
+  /* text starts after cover-left + cover-width + gap */
+  padding-left: calc(var(--thumb-left) + var(--thumb-size) + var(--thumb-gap)) !important;
 }
 .btn--with-image::before {
   content: "";
   position: absolute;
   top: 50%;
-  left: 10px !important;                          /* push image toward the text */
+  left: var(--thumb-left) !important;
   transform: translateY(-50%);
   width: var(--thumb-size);
   height: var(--thumb-size);
@@ -178,7 +182,7 @@ body {
 @media (max-width: 420px) {
   .btn--with-image {
     --thumb-gap: 1px;
-    padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 8px) !important;
+    --thumb-left: 20px;
+    padding-left: calc(var(--thumb-left) + var(--thumb-size) + var(--thumb-gap)) !important;
   }
-  .btn--with-image::before { left: 8px !important; }
 }
