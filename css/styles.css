@@ -181,7 +181,7 @@ body {
 .links .btn.btn--with-image {
   --thumb-size: 40px;
   --thumb-gap: 0px;  /* set to 1px for almost touching */
-  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + 30px);
+  padding-left: calc(var(--thumb-size) + var(--thumb-gap) + .01px);
 }
 .links .btn.btn--with-image::before {
   left: 10px;        /* nudges image toward the text */
